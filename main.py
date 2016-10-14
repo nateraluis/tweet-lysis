@@ -11,13 +11,10 @@ import HTAnalyzer as HTA
 import Plotter
 
 
-
 def main():
-
         api = Auth.getAPI()
 
-        # Only iterate through the first 200 statuses
-        count = 1
+        # cManager = ConfigManager()
 
         query_term = "#MakeAmericaGreatAgain"
 
@@ -31,8 +28,8 @@ def main():
         ).items(10)
 
         # TP.printTweets(tweets)
-        HTList = HTA.getAssociatedHashtags(tweets, "MakeAmericaGreatAgain".lower())
-        TP.countWordOccurrences(tweets, HTList)
+        # HTList = HTA.getAssociatedHashtags(tweets, "MakeAmericaGreatAgain".lower())
+        TP.countWordOccurrences(tweets)#, HTList)
 
         # TODO not needed anymore
         # HTCount = HTA.countHT(HTList)

@@ -28,14 +28,14 @@ def printList(HTList):
     for ht in HTList:
         print ht
 
-def countWordOccurrences(tweets, HTList):
-    HTUniqueList = HTA.getUniqueHTList(HTList)
+def countWordOccurrences(tweets):#, HTList):
+    # HTUniqueList = HTA.getUniqueHTList(HTList)
     wordsWithStop = []
     for tweet in tweets:
-        text = tweet.text
-        wordsWithStop += WP.preprocess(text, lowercase=True)
+        wordsWithStop += WP.preprocess(tweet.text, lowercase=True)
 
-    words = [term for term in wordsWithStop if term not in WP.stopwords or HTList]
-
+    words = [term for term in wordsWithStop
+            if term not in WP.stop and
+            not term.startswith(('#', '@'))]
     counter = Counter(words)
     print counter.most_common(3)

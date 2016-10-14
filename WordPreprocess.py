@@ -2,7 +2,7 @@ from nltk.corpus import stopwords
 import re
 import string
 
-stop = stopwords.words('english') + list(string.punctuation) + ['rt', 'via']
+stop = stopwords.words('english') + list(string.punctuation) + ['rt', 'via'] + [u'\u2026']
 
 emoticons_str = r"""
     (?:
@@ -34,5 +34,4 @@ def preprocess(s, lowercase=False):
     tokens = tokenize(s)
     if lowercase:
         tokens = [token if emoticon_re.search(token) else token.lower() for token in tokens]
-
     return tokens
