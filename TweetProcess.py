@@ -25,20 +25,13 @@ def printOnlyAssociatedHashtags(status):
             print element
 
 
-#
-# {
-#   ...
-#   "text": "Loved #devnestSF"
-#   "entities": {
-#     "hashtags": [
-#       "text": "devnestSF"
-#       "indices": [
-#         6,
-#         16
-#       ]
-#     ],
-#     "symbols": [],
-#     "urls": [],
-#     "user_mentions": []
-#   }
-# }
+# For "get hashtags"
+#   extract tweets ht
+#   add them to list
+#   check for duplicates
+#   write json
+        # {
+        #     "ht1": reps,
+        #     "ht2": reps,
+        #     "ht3": reps,
+        # }
