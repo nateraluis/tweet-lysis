@@ -16,6 +16,7 @@ def getAssociatedHashtags(tweets, original):
             for element in entity[u'text'].splitlines():
                 if element and element != original:
                     HTList.append(element.lower())
+                    print element
     # while end
 
     return HTList
@@ -28,6 +29,7 @@ def countHT(HTList):
         if not htc in HTCount:
             HTCount.append(htc)
     return HTCount
+
 
 def getMostUsed(HTList, number):
     counter = Counter(HTList)
