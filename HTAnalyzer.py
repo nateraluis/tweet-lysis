@@ -4,19 +4,41 @@ from collections import Counter
 import numpy as np
 import json
 
+VERBOSE = True
 
 def getAssociatedHashtags(tweets, original):
     HTList = []
+    tweetsProcessed = 0
     while True:
         try:
             status = tweets.next()
-        except StopIteration:
+        except TweepError:
+            print """
+------------------------
+        ERROR
+------------------------
+ Please wait 15 minutes
+ Downloaded %d tweets
+            """ % (tweetsProcessed)
             break
+        except StopIteration:
+            if VERBOSE:
+                print "+++ End of cursor +++"
+            break
+        tweetsProcessed += 1
         for entity in status.entities['hashtags']:
             for element in entity[u'text'].splitlines():
-                if element and element != original:
+                if element and element.lower() != original:
                     HTList.append(element.lower())
-                    print element
+    if VERBOSE:
+        print """
+------------------------
+        Finished
+------------------------
+ Successfully downloaded
+ and processed %d tweets.
+ Found %d associated HTs.
+        """ % (tweetsProcessed, len(set(HTList)))
     # while end
 
     return HTList

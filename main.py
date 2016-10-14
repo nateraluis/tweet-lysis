@@ -25,13 +25,13 @@ def main():
             api.search,
             q=query_term,
             result_type="recent",
-            since="2016-10-12",
-            until="2016-10-13",
+            since="2016-10-09 20:00",
+            until="2016-10-09 22:00",
             show_user=True
-        ).items(10)
+        ).items(5000)
 
         # TP.printTweets(tweets)
-        HTList = HTA.getAssociatedHashtags(tweets, "MakeAmericaGreatAgain")
+        HTList = HTA.getAssociatedHashtags(tweets, "MakeAmericaGreatAgain".lower())
         HTCount = HTA.countHT(HTList)
         # print HTA.getMostUsed(HTList, 3)
         # print HTCount
