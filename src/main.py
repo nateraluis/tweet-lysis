@@ -48,7 +48,7 @@ def main():
         # print HTCount
 
         # Plotter.plotAllRelatedHT(HTA.getMostUsed(HTList, 3))
-        # Plotter.plotCountRelatedHT(HTA.getMostUsed(HTList, 10))
+        Plotter.plotRelatedHT(HTA.getMostUsed(HTList, 2))
 
 
 
