@@ -28,20 +28,16 @@ def main():
             since="2016-10-13",
             until="2016-10-14",
             show_user=True
-        ).items(2)
+        ).items(10)
 
         query_dir = conf.newQueryPath(query_term)
+        # TODO Turn saving on
         tweetsAsJSON = FM.saveTweetQuery(tweets, query_dir)
-        for tweet in tweetsAsJSON:
-            print tweet['user']['screen_name']
-            print ""
-            print "---------"
-            print ""
-        # print tweetsAsJSON
 
 
         # TP.printTweets(tweets)
-        # HTList = HTA.getAssociatedHashtags(tweets, "MakeAmericaGreatAgain".lower())
+        HTList = HTA.getAssociatedHashtags(tweetsAsJSON, "MakeAmericaGreatAgain".lower())
+        TP.printList(HTList)
         # TP.countWordOccurrences(tweets)#, HTList)
 
         # TODO not needed anymore
@@ -50,7 +46,6 @@ def main():
 
         # print HTA.getMostUsed(HTList, 3)
         # print HTCount
-        # TP.printList(HTCount)
 
         # Plotter.plotAllRelatedHT(HTA.getMostUsed(HTList, 3))
         # Plotter.plotCountRelatedHT(HTA.getMostUsed(HTList, 10))

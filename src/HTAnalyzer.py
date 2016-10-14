@@ -1,4 +1,4 @@
-from tweepy import TweepError
+
 from collections import Counter
 
 import config.ConfigManager as CM
@@ -15,38 +15,12 @@ def getUniqueHTList(HTList):
 def getAssociatedHashtags(tweets, original):
     HTList = []
     tweetsProcessed = 0
-    while True:
-        try:
-            status = tweets.next()
-        except TweepError:
-            print """
-------------------------
-        ERROR
-------------------------
- Please wait 15 minutes
- Downloaded %d tweets
-            """ % (tweetsProcessed)
-            break
-        except StopIteration:
-            if VERBOSE:
-                print "+++ End of cursor +++"
-            break
-        tweetsProcessed += 1
-        TP.printTweet(status)
-        for entity in status.entities['hashtags']:
-            for element in entity[u'text'].splitlines():
-                if element and element.lower() != original:
-                    HTList.append(element.lower())
-    if VERBOSE:
-        print """
-------------------------
-        Finished
-------------------------
- Successfully downloaded
- and processed %d tweets.
- Found %d associated HTs.
-        """ % (tweetsProcessed, len(set(HTList)))
-    # while end
+
+    for tweet in tweets:
+        for hashtags in tweet['entities']['hashtags']:
+            ht = hashtags[u'text'].lower()
+            if ht != original.lower():
+                HTList.append(ht)
 
     return HTList
 
