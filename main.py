@@ -25,10 +25,10 @@ def main():
             api.search,
             q=query_term,
             result_type="recent",
-            since="2016-10-09 20:00",
-            until="2016-10-09 22:00",
+            since="2016-10-09",
+            until="2016-10-10",
             show_user=True
-        ).items(5000)
+        ).items(10)
 
         # TP.printTweets(tweets)
         HTList = HTA.getAssociatedHashtags(tweets, "MakeAmericaGreatAgain".lower())
