@@ -25,20 +25,25 @@ def main():
             api.search,
             q=query_term,
             result_type="recent",
-            since="2016-10-09",
-            until="2016-10-10",
+            since="2016-10-13",
+            until="2016-10-14",
             show_user=True
         ).items(10)
 
         # TP.printTweets(tweets)
         HTList = HTA.getAssociatedHashtags(tweets, "MakeAmericaGreatAgain".lower())
-        HTCount = HTA.countHT(HTList)
+        TP.countWordOccurrences(tweets, HTList)
+
+        # TODO not needed anymore
+        # HTCount = HTA.countHT(HTList)
+
+
         # print HTA.getMostUsed(HTList, 3)
         # print HTCount
         # TP.printList(HTCount)
 
         # Plotter.plotAllRelatedHT(HTA.getMostUsed(HTList, 3))
-        Plotter.plotCountRelatedHT(HTA.getMostUsed(HTList, 10))
+        # Plotter.plotCountRelatedHT(HTA.getMostUsed(HTList, 10))
 
 
 

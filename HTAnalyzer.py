@@ -3,8 +3,13 @@ from collections import Counter
 
 import numpy as np
 import json
+import TweetProcess as TP
 
 VERBOSE = True
+
+def getUniqueHTList(HTList):
+    return set(HTList)
+
 
 def getAssociatedHashtags(tweets, original):
     HTList = []
@@ -26,6 +31,7 @@ def getAssociatedHashtags(tweets, original):
                 print "+++ End of cursor +++"
             break
         tweetsProcessed += 1
+        TP.printTweet(status)
         for entity in status.entities['hashtags']:
             for element in entity[u'text'].splitlines():
                 if element and element.lower() != original:
