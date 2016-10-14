@@ -2,6 +2,7 @@ from tweepy import TweepError
 
 import json
 
+
 def printPocessed(status):
     out = "[%s] %s: %s" % (status.created_at, status.user.screen_name, status.text)
     return out
@@ -25,13 +26,6 @@ def printOnlyAssociatedHashtags(status):
             print element
 
 
-# For "get hashtags"
-#   extract tweets ht
-#   add them to list
-#   check for duplicates
-#   write json
-        # {
-        #     "ht1": reps,
-        #     "ht2": reps,
-        #     "ht3": reps,
-        # }
+def printList(HTList):
+    for ht in HTList:
+        print ht

@@ -7,6 +7,7 @@ import sys
 
 import Auth
 import TweetProcess as TP
+import HTAnalyzer as HTA
 
 
 
@@ -28,7 +29,12 @@ def main():
             show_user=True
         ).items(10)
 
-        TP.printTweets(tweets)
+        # TP.printTweets(tweets)
+        HTList = HTA.getAssociatedHashtags(tweets)
+        HTCount = HTA.countHT(HTList)
+        TP.printList(HTCount)
+
+
 
 if __name__ == "__main__":
     main()
