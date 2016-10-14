@@ -1,6 +1,7 @@
 from tweepy import TweepError
 from collections import Counter
 
+import config.ConfigManager as CM
 import numpy as np
 import json
 import TweetProcess as TP

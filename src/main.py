@@ -9,6 +9,7 @@ import Auth
 import TweetProcess as TP
 import HTAnalyzer as HTA
 import Plotter
+import FileManagement as FM
 
 import config.ConfigManager as CM
 
@@ -16,7 +17,7 @@ import config.ConfigManager as CM
 def main():
         api = Auth.getAPI()
 
-        cManager = CM.ConfigManager()
+        conf = CM.ConfigManager()
 
         query_term = "#MakeAmericaGreatAgain"
 
@@ -27,7 +28,17 @@ def main():
             since="2016-10-13",
             until="2016-10-14",
             show_user=True
-        ).items(10)
+        ).items(2)
+
+        query_dir = conf.newQueryPath(query_term)
+        tweetsAsJSON = FM.saveTweetQuery(tweets, query_dir)
+        for tweet in tweetsAsJSON:
+            print tweet['user']['screen_name']
+            print ""
+            print "---------"
+            print ""
+        # print tweetsAsJSON
+
 
         # TP.printTweets(tweets)
         # HTList = HTA.getAssociatedHashtags(tweets, "MakeAmericaGreatAgain".lower())
