@@ -1,4 +1,4 @@
-
+import os
 import json
 
 
@@ -12,4 +12,6 @@ class ConfigManager():
             print ("Config file not found")
             sys.exit(1)
 
-        print conf
+        self.TWEETS_PATH = conf['TWEETS_PATH']
+        self.DEBUG = conf['DEBUG']
+        print os.getcwd()

@@ -29,7 +29,7 @@ def main():
             show_user=True
         ).items(10)
 
-        TP.printTweets(tweets)
+        # TP.printTweets(tweets)
         # HTList = HTA.getAssociatedHashtags(tweets, "MakeAmericaGreatAgain".lower())
         # TP.countWordOccurrences(tweets)#, HTList)
 

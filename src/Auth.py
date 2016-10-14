@@ -1,4 +1,6 @@
 import tweepy
+import sys
+import os
 
 import json
 
@@ -8,12 +10,14 @@ def getKey(keyfile):
 		with open(keyfile) as fin:
 			key = json.load(fin)
 	except FileNotFoundError as e:
-		print ("Key not found")
+		print "Exception found"
 		sys.exit(1)
+	# Log here
 	return key
 
 def getAPI():
-	key = getKey("config/meta.json")
+	key_path = os.path.join(os.getcwd(), "config/meta.json")
+	key = getKey(key_path)
 	# create authentication handlers given pre-existing keys
 	# auths = []
 	# for key['consumer_key'], key['consumer_secret'], key['access_token'], key['access_secret'] in key:
