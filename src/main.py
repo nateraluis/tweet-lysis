@@ -28,7 +28,7 @@ def main():
             since="2016-10-13",
             until="2016-10-14",
             show_user=True
-        ).items(10)
+        ).items(20)
 
         query_dir = conf.newQueryPath(query_term)
         # TODO Turn saving on
@@ -36,19 +36,17 @@ def main():
 
 
         # TP.printTweets(tweets)
-        HTList = HTA.getAssociatedHashtags(tweetsAsJSON, "MakeAmericaGreatAgain".lower())
-        TP.printList(HTList)
-        # TP.countWordOccurrences(tweets)#, HTList)
-
-        # TODO not needed anymore
-        # HTCount = HTA.countHT(HTList)
+        HTList = HTA.getAssociatedHashtags(tweetsAsJSON, "MakeAmericaGreatAgain")
+        # TP.printList(HTList)
+        WordOccurrences = TP.countWordOccurrences(tweetsAsJSON, HTList)
 
 
         # print HTA.getMostUsed(HTList, 3)
         # print HTCount
 
-        # Plotter.plotAllRelatedHT(HTA.getMostUsed(HTList, 3))
-        Plotter.plotRelatedHT(HTA.getMostUsed(HTList, 2))
+        # Plotter.plotTupleCount(HTA.getMostUsed(HTList, 3))
+        # Plotter.plotTupleCount(WordOccurrences)
+        # Plotter.plotTupleCount(HTA.getMostUsed(HTList, 2))
 
 
 

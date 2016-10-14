@@ -24,15 +24,6 @@ def getAssociatedHashtags(tweets, original):
 
     return HTList
 
-def countHT(HTList):
-    HTCount = []
-    for ht in HTList:
-        #ht count
-        htc = (ht, HTList.count(ht))
-        if not htc in HTCount:
-            HTCount.append(htc)
-    return HTCount
-
 
 def getMostUsed(HTList, number):
     counter = Counter(HTList)
