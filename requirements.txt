@@ -1,0 +1,11 @@
+#### Requirements for Tweet-lysis ####
+
+# Core API of the app
+tweepy
+
+# Plotting APIs
+numpy
+matplotlib
+
+# Natural Language Processing
+nltk

@@ -10,11 +10,13 @@ import TweetProcess as TP
 import HTAnalyzer as HTA
 import Plotter
 
+import config.ConfigManager as CM
+
 
 def main():
         api = Auth.getAPI()
 
-        # cManager = ConfigManager()
+        cManager = CM.ConfigManager()
 
         query_term = "#MakeAmericaGreatAgain"
 
@@ -27,9 +29,9 @@ def main():
             show_user=True
         ).items(10)
 
-        # TP.printTweets(tweets)
+        TP.printTweets(tweets)
         # HTList = HTA.getAssociatedHashtags(tweets, "MakeAmericaGreatAgain".lower())
-        TP.countWordOccurrences(tweets)#, HTList)
+        # TP.countWordOccurrences(tweets)#, HTList)
 
         # TODO not needed anymore
         # HTCount = HTA.countHT(HTList)
