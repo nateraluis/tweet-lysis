@@ -1,0 +1,4 @@
+{
+    "TWEETS_PATH": "data/tweets",
+    "DEBUG": "True"
+}
