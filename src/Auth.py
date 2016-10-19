@@ -9,14 +9,14 @@ def getKey(keyfile):
 	try:
 		with open(keyfile) as fin:
 			key = json.load(fin)
-	except FileNotFoundError as e:
+	except IOError as e:
 		print "Exception found"
 		sys.exit(1)
 	# Log here
 	return key
 
 def getAPI():
-	key_path = os.path.join(os.getcwd(), "config/meta.json")
+	key_path = os.path.join(os.getcwd(), "src/config/meta.json")
 	key = getKey(key_path)
 	# create authentication handlers given pre-existing keys
 	# auths = []
