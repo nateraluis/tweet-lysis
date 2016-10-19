@@ -9,7 +9,7 @@ def getKey(keyfile):
 	try:
 		with open(keyfile) as fin:
 			key = json.load(fin)
-	except IOError as e:
+	except FileNotFoundError as e:
 		print "Exception found"
 		sys.exit(1)
 	# Log here
