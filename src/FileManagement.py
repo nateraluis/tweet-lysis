@@ -39,7 +39,15 @@ def createCredentials(path):
     acc_tok = raw_input('Enter the access token: ')
     acc_sec = raw_input('Enter the access secret: ')
 
-    print Auth.__getAPI__(cons_key, cons_sec, acc_tok, acc_sec)
+    # As long as credentials are not valid, ask for them
+    while not Auth.__validateUser__(cons_key, cons_sec, acc_tok, acc_sec):
+        print ""
+        print "Error: The credentials provided are not valid"
+        cons_key = raw_input('Enter the consumer key: ')
+        cons_sec = raw_input('Enter the consumer secret: ')
+        acc_tok = raw_input('Enter the access token: ')
+        acc_sec = raw_input('Enter the access secret: ')
+        print ""
 
     with open(path, 'w') as f:
         credentials = {
