@@ -28,7 +28,7 @@ def main():
             since="2016-10-13",
             until="2016-10-14",
             show_user=True
-        ).items(20)
+        ).items(200)
 
         query_dir = conf.newQueryPath(query_term)
         # TODO Turn saving on
@@ -45,7 +45,7 @@ def main():
         # print HTCount
 
         # Plotter.plotTupleCount(HTA.getMostUsed(HTList, 3))
-        # Plotter.plotTupleCount(WordOccurrences)
+        Plotter.plotTupleCount(WordOccurrences)
         # Plotter.plotTupleCount(HTA.getMostUsed(HTList, 2))
 
 

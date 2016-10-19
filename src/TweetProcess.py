@@ -39,4 +39,9 @@ def countWordOccurrences(tweets, HTList, most_used=10):
             not term.startswith(('#', '@'))]
     counter = Counter(words)
 
-    return counter.most_common(most_used)
+    mostUsed = counter.most_common(most_used)
+    print "The most used words were:"
+    for word in mostUsed:
+        print "\t %s with %d occurrences" % (word[0], word[1])
+
+    return mostUsed
