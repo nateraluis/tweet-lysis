@@ -1,2 +1,2 @@
-./config/*
+./config/meta.json
 *.pyc
