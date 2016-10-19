@@ -35,3 +35,16 @@ def getAPI():
 	# api.auth_idx = 1
 
 	return tweepy.API(auth)#, monitor_rate_limit=True, wait_on_rate_limit=True)
+
+
+def __getAPI__(consumer_key, consumer_secret, access_token, access_secret):
+	try:
+		auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+		auth.set_access_token(access_token, access_secret)
+		API = tweepy.API(auth)
+		API.me()
+		print "ME"
+	except tweepy.TweepError as e:
+		return None
+
+	return API#, monitor_rate_limit=True, wait_on_rate_limit=True)
